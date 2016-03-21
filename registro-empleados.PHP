@@ -1,16 +1,22 @@
-<?php include("conexion.php");
-if(isset($_POST["Guardar"]))
+<?php 
+include("conexion.php");
+if(isset($_POST["Guardar2"]))
 {
  $Nombre=$_POST["Nombre"];
  $Apat=$_POST["Apat"];
  $Amat=$_POST["Amat"];
  $CI=$_POST["CI"];
- $SQL1="INSERT INTO cliente";
- $SQL2="(CodCli, CI, Nombre, PapCli, MapCli) VALUES ";
+ $SQL1="INSERT INTO empleado";
+ $SQL2="(CodEmp, CI, Nombre, PapEmp, MapEmp) VALUES ";
  $SQL3="(NULL, '$CI', '$Nombre', '$Apat', '$Amat') ";
  $SQLT=$SQL1.$SQL2.$SQL3;
- $Punt=mysqli_query($con,$SQLT);
-			echo "<script>
+ $id=1;
+ $SQL4="INSERT INTO usuario";
+ $SQL5="(CodEmp, CI, Nombre, PapEmp, MapEmp) VALUES ";
+ $SQL3="(NULL, '$CI', '$Nombre', '$Apat', '$Amat') ";
+ $Punt=mysqli_query($Conexion,$SQLT);
+ $id++;
+echo "<script>
                window.close();
                window.opener.location.reload(); 
             </script>";
@@ -30,93 +36,74 @@ if(isset($_POST["Guardar"]))
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-<table width="599" height="369" border="0" align="center" cellspacing="0">
+<table width="487" height="355" border="0" align="center" cellspacing="0">
   <tr>
-    <td colspan="7" bgcolor="#009966">&nbsp;</td>
+    <td colspan="5" bgcolor="#009966">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="7" bgcolor="#0066FF"><div align="center" class="Estilo1">REGISTRO CLIENTES </div></td>
+    <td colspan="5" bgcolor="#0066FF"><div align="center" class="Estilo1">REGISTRO EMPLEADOS </div></td>
   </tr>
   <tr>
-    <td width="49" bgcolor="#0066FF">&nbsp;</td>
-    <td width="51" bgcolor="#0066FF">&nbsp;</td>
-    <td width="133" bgcolor="#0066FF"><div align="right">Nombre: </div></td>
-    <td width="22" bgcolor="#0066FF">&nbsp;</td>
-    <td width="130" bgcolor="#0066FF"><label>
-      <input name="Nombre" type="text" id="Nombre" />
-    </label></td>
-    <td width="84" bgcolor="#0066FF">&nbsp;</td>
-    <td width="79" bgcolor="#0066FF">&nbsp;</td>
+    <td width="58" bgcolor="#0066FF">&nbsp;</td>
+    <td width="194" bgcolor="#0066FF"><div align="right">Nombre: </div></td>
+    <td width="45" bgcolor="#0066FF">&nbsp;</td>
+    <td width="189" bgcolor="#0066FF"><input name="Nombre" type="text" id="Nombre" /></td>
+    <td width="103" bgcolor="#0066FF"><label></label></td>
   </tr>
   <tr>
     <td height="21" bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF"><div align="right"></div></td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF">&nbsp;</td>
   </tr>
   <tr>
-    <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF"><div align="right">Apellido Paterno: </div></td>
     <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF"><label>
-      <input name="Apat" type="text" id="Apat" />
-    </label></td>
-    <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF">&nbsp;</td>
+    <td bgcolor="#0066FF"><input name="Apat" type="text" id="Apat" /></td>
+    <td bgcolor="#0066FF"><label></label></td>
   </tr>
   <tr>
     <td height="21" bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF"><div align="right"></div></td>
-    <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
   </tr>
   <tr>
-    <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF"><div align="right">Apellido Materno:</div></td>
     <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF"><label>
-      <input name="Amat" type="text" id="Amat" />
-    </label></td>
-    <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF">&nbsp;</td>
+    <td bgcolor="#0066FF"><input name="Amat" type="text" id="Amat" /></td>
+    <td bgcolor="#0066FF"><label></label></td>
   </tr>
   <tr>
-    <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF"><div align="right"></div></td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF">&nbsp;</td>
   </tr>
   <tr>
-    <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF">&nbsp;</td>
     <td bgcolor="#0066FF"><div align="right">Carnet de Identidad: </div></td>
     <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF"><label>
-      <input name="CI" type="text" id="CI" />
-    </label></td>
-    <td bgcolor="#0066FF">&nbsp;</td>
-    <td bgcolor="#0066FF">&nbsp;</td>
+    <td bgcolor="#0066FF"><input name="CI" type="text" id="CI" /></td>
+    <td bgcolor="#0066FF"><label></label></td>
   </tr>
   <tr>
-    <td colspan="7" bgcolor="#0066FF"><label>
+    <td height="21" colspan="5" bgcolor="#0066FF">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="49" colspan="5" bgcolor="#0066FF"><label>
       <div align="center">
-        <input name="Guardar" type="submit" class="Estilo1" id="Guardar" value="Guardar" />
-        </div>
-    </label></td>
+        <input name="Guardar2" type="submit" class="Estilo1" id="Guardar2" value="Guardar" />  
+      </div>
+      </label></td>
   </tr>
   <tr>
-    <td colspan="7" bgcolor="#009966">&nbsp;</td>
+    <td colspan="5" bgcolor="#009966">&nbsp;</td>
   </tr>
 </table>
 </form>

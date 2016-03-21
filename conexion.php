@@ -1,9 +1,9 @@
-<?php
-  $Host = "localhost"; 
-  $User = "root";
-  $Pass = "";
-  $BaseDeDatos="ventas";
-  $Conexion=mysqli_connect($Host,$User,$Pass);
-  mysqli_select_db($Conexion,$BaseDeDatos);
+<?php 
+// datos para la coneccion a mysql 
+define('DB_SERVER','localhost'); 
+define('DB_NAME','ventas2'); 
+define('DB_USER','root'); 
+define('DB_PASS',''); 
+$con = mysql_connect(DB_SERVER,DB_USER,DB_PASS); 
+mysql_select_db(DB_NAME,$con); 
 ?>
-
